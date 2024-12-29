@@ -1,0 +1,67 @@
+{
+    // Editor settings
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.rulers": [
+        80,
+        120
+    ],
+    "editor.renderWhitespace": "trailing",
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "always"
+    },
+    // TypeScript
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "typescript.enablePromptUseWorkspaceTsdk": true,
+    // GitHub Copilot
+    "github.copilot.advanced": {
+        "enabled": true
+    },
+    "github.copilot.chat.codeGeneration.useInstructionFiles": true,
+    "github.copilot.chat.commitMessageGeneration.instructions": [
+        {
+            "file": ".copilot-commit-message-instructions.md"
+        },
+        {
+            "text": "Use conventional commit message format."
+        }
+    ],
+    // Terminal settings
+    "terminal.integrated.defaultProfile.linux": "bash",
+    "terminal.integrated.profiles.linux": {
+        "bash": {
+            "path": "bash",
+            "icon": "terminal-bash"
+        }
+    },
+    // File associations
+    "files.associations": {
+        "*.css": "tailwindcss",
+        "*.json": "jsonc"
+    },
+    // Exclude files and folders
+    "files.exclude": {
+        "**/node_modules": true,
+        "**/dist": true,
+        "**/.DS_Store": true
+    },
+    // Git settings
+    "git.enableSmartCommit": true,
+    "git.autofetch": true,
+    // Error handling
+    "problems.showCurrentInStatus": true,
+    // Prettier
+    "prettier.singleQuote": true,
+    "prettier.semi": true,
+    "prettier.tabWidth": 2,
+    // ESLint
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact"
+    ]
+}

@@ -1,0 +1,9 @@
+services:
+  app:
+    container_name: react-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: sleep infinity
+    volumes:
+      - .:/workspace

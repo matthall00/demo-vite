@@ -1,0 +1,33 @@
+{
+  "name": "Vite + React",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/workspace/${localWorkspaceFolderBasename},type=bind"
+  ],
+  "workspaceFolder": "/workspace/${localWorkspaceFolderBasename}",
+  "features": {},
+  "forwardPorts": [5173],
+  "postCreateCommand": "./.devcontainer/scripts/vite-init.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "bradlc.vscode-tailwindcss",
+        "formulahendry.auto-rename-tag",
+        "streetsidesoftware.code-spell-checker",
+        "christian-kohler.npm-intellisense",
+        "formulahendry.auto-close-tag",
+        "eamodio.gitlens",
+        "ms-azuretools.vscode-docker",
+        "dsznajder.es7-react-js-snippets",
+        "mgmcdermott.vscode-language-babel",
+        "visualstudioexptteam.vscodeintellicode",
+        "csstools.postcss",
+        "Zignd.html-css-class-completion",
+        "yoavbls.pretty-ts-errors"
+      ]
+    }
+  }
+}
