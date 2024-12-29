@@ -1,63 +1,50 @@
-# Vite + React Development Container
+# React + TypeScript + Vite
 
-A modern development environment for Vite and React applications using VS Code Dev Containers.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## 🚀 Quick Start
+Currently, two official plugins are available:
 
-1. Install [Docker](https://www.docker.com/products/docker-desktop)
-2. Install [VS Code](https://code.visualstudio.com/)
-3. Install the [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension
-4. Clone this repository
-5. Open in VS Code and click "Reopen in Container" when prompted
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## 📦 Features
+## Expanding the ESLint configuration
 
-- Vite + React + TypeScript setup
-- Tailwind CSS for styling
-- React Query for data fetching
-- Formik + Yup for form handling
-- ESLint + Prettier for code quality
-- Pre-configured VS Code settings
-- Hot reload enabled
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-## 🛠️ Development
+- Configure the top-level `parserOptions` property like this:
 
-```bash
-# Start development server
-npm run dev
-
-# Build for production
-npm run build
-
-# Preview production build
-npm run preview
-
-# Run tests
-npm run test
+```js
+export default tseslint.config({
+  languageOptions: {
+    // other options...
+    parserOptions: {
+      project: ['./tsconfig.node.json', './tsconfig.app.json'],
+      tsconfigRootDir: import.meta.dirname,
+    },
+  },
+})
 ```
 
-## 📁 Project Structure
+- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
+- Optionally add `...tseslint.configs.stylisticTypeChecked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
 
+```js
+// eslint.config.js
+import react from 'eslint-plugin-react'
+
+export default tseslint.config({
+  // Set the react version
+  settings: { react: { version: '18.3' } },
+  plugins: {
+    // Add the react plugin
+    react,
+  },
+  rules: {
+    // other rules...
+    // Enable its recommended rules
+    ...react.configs.recommended.rules,
+    ...react.configs['jsx-runtime'].rules,
+  },
+})
 ```
-src/
-├── api/        # API integration
-├── components/ # Reusable components
-├── context/    # React context providers
-├── hooks/      # Custom hooks
-├── pages/      # Route components
-├── styles/     # Global styles
-├── types/      # TypeScript types
-└── utils/      # Helper functions
-```
-
-## 🧩 Best Practices
-
-- Follow TypeScript patterns for type safety
-- Use React Query for data fetching
-- Implement proper error boundaries
-- Follow component naming conventions
-- Write unit tests for components
-
-## 📄 License
-
-MIT
